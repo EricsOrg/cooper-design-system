@@ -48,14 +48,24 @@ export default function DesignCatalogPage() {
               <CardHeader>
                 <CardTitle>Tokens</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <TokenSwatch name="--brand" className="bg-brand text-brand-foreground" />
-                <TokenSwatch
-                  name="--surface"
-                  className="bg-surface text-surface-foreground border"
-                />
-                <TokenSwatch name="--background" className="bg-background text-foreground border" />
-                <TokenSwatch name="--card" className="bg-card text-card-foreground border" />
+              <CardContent className="grid gap-4">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <TokenSwatch name="--brand" className="bg-brand text-brand-foreground" />
+                  <TokenSwatch
+                    name="--surface"
+                    className="bg-surface text-surface-foreground border"
+                  />
+                  <TokenSwatch
+                    name="--background"
+                    className="bg-background text-foreground border"
+                  />
+                  <TokenSwatch name="--card" className="bg-card text-card-foreground border" />
+                </div>
+                <div className="flex justify-end">
+                  <Button asChild variant="outline" size="sm">
+                    <Link href="/design/tokens">Open tokens page</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 

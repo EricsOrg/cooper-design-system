@@ -164,6 +164,20 @@ export default function DesignCatalogPage() {
                 </Button>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Forms suite</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  FormField + Select + Textarea + Checkbox/Radio, composed into a reusable FormSection.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/forms">Open demo</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>

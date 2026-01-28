@@ -2,7 +2,10 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-export type AppHeaderProps = React.HTMLAttributes<HTMLElement> & {
+export type AppHeaderProps = Omit<React.HTMLAttributes<HTMLElement>, "title"> & {
+  /**
+   * Header brand/title slot. Named `title` for ergonomics, but we omit the native HTML `title` attribute to avoid type conflicts.
+   */
   title?: React.ReactNode;
   breadcrumbs?: React.ReactNode;
   /** Optional actions on the right side (buttons, profile, etc.) */

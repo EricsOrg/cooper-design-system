@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:visual": "playwright test --config=playwright.config.ts",
-    "test:visual:update": "playwright test --config=playwright.config.ts --update-snapshots"
+    "test:visual:update": "playwright test --config=playwright.config.ts --update-snapshots",
+    "test:a11y": "playwright test --config=playwright.a11y.config.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -26,11 +27,13 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.58.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.10.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",

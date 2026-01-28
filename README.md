@@ -51,6 +51,22 @@ Tips:
   npx playwright test -g "overlays" --update-snapshots
   ```
 
+## Accessibility smoke tests (axe + Playwright)
+
+This repo includes a fast accessibility smoke suite for `/design/*` using `@axe-core/playwright`.
+
+### Run a11y smoke tests
+
+```bash
+npm run test:a11y
+```
+
+Notes:
+- Runs against a production build (`next build` + `next start`) on a fixed port (default `3101`).
+- Only fails on **serious/critical** axe violations (smoke-level).
+- `color-contrast` is intentionally excluded from this smoke suite (too noisy for docs pages); track it separately.
+- If you need a different port, set `PW_PORT`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

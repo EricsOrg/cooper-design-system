@@ -6,3 +6,4 @@ export * from "./section-header";
 export * from "./navigation";
 export * from "./form-section";
 export * from "./forms";
+export * from "./data";

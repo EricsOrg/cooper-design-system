@@ -38,10 +38,10 @@ export function FormField({
 
       {/* We attach aria-describedby to the *first* focusable element in the child slot via clone when possible */}
       {React.isValidElement(children)
-        ? React.cloneElement(children as React.ReactElement<any>, {
+        ? React.cloneElement(children as React.ReactElement<Record<string, unknown>>, {
             "aria-describedby": describedBy || undefined,
             "aria-invalid": Boolean(error) || undefined,
-          } as any)
+          })
         : children}
 
       {hint ? (

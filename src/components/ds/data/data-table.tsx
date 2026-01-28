@@ -81,9 +81,13 @@ export function DataTable<T>({
           {React.isValidElement(emptyState) ? (
             emptyState
           ) : emptyState ? (
-            <EmptyState {...(emptyState as EmptyStateProps)} />
+            <EmptyState defaultIcon {...(emptyState as EmptyStateProps)} />
           ) : (
-            <EmptyState title="No results" description="Try adjusting your filters." />
+            <EmptyState
+              defaultIcon
+              title="No results"
+              description="Try adjusting your filters."
+            />
           )}
         </div>
       ) : null}

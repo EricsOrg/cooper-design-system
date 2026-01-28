@@ -31,7 +31,7 @@ export default function DataDesignPage() {
         <Container>
           <SectionHeader
             title="Data suite"
-            description="FilterBar + DataTable + Pagination, with shared empty/loading feedback primitives."
+            description="FilterBar + DataTable + Pagination (with optional page-size selector), plus shared empty/loading feedback primitives."
           />
 
           <div className="mt-8 grid gap-6">

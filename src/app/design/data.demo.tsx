@@ -30,7 +30,7 @@ const ALL_ROWS: Person[] = Array.from({ length: 57 }).map((_, idx) => {
 export function DataDemo() {
   const [query, setQuery] = React.useState("")
   const [page, setPage] = React.useState(1)
-  const [pageSize] = React.useState(10)
+  const [pageSize, setPageSize] = React.useState(10)
   const [loading, setLoading] = React.useState(false)
   const [progress, setProgress] = React.useState<number>(0)
 
@@ -184,6 +184,11 @@ export function DataDemo() {
       <Pagination
         page={page}
         pageSize={pageSize}
+        pageSizeOptions={[10, 25, 50]}
+        onPageSizeChange={(next) => {
+          setPageSize(next)
+          setPage(1)
+        }}
         totalItems={totalItems}
         onPageChange={setPage}
         compact

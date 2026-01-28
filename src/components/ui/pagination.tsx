@@ -8,6 +8,12 @@ export type PaginationProps = {
   pageSize: number
   totalItems: number
   onPageChange: (page: number) => void
+  /**
+   * Optional controlled page size selector.
+   * Provide both `pageSizeOptions` and `onPageSizeChange` to render it.
+   */
+  pageSizeOptions?: number[]
+  onPageSizeChange?: (pageSize: number) => void
   className?: string
   compact?: boolean
 }
@@ -41,6 +47,8 @@ export function Pagination({
   pageSize,
   totalItems,
   onPageChange,
+  pageSizeOptions,
+  onPageSizeChange,
   className,
   compact = false,
 }: PaginationProps) {
@@ -51,6 +59,7 @@ export function Pagination({
   const end = Math.min(totalItems, current * pageSize)
 
   const pages = getPages(current, totalPages)
+  const pageSizeId = React.useId()
 
   return (
     <div
@@ -71,50 +80,87 @@ export function Pagination({
         )}
       </p>
 
-      <nav aria-label="Pagination" className="flex items-center gap-1">
-        <Button
-          type="button"
-          variant="outline"
-          size={compact ? "sm" : "default"}
-          onClick={() => onPageChange(current - 1)}
-          disabled={current <= 1}
-        >
-          Prev
-        </Button>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+        {pageSizeOptions && pageSizeOptions.length > 0 && onPageSizeChange ? (
+          <div className="flex items-center gap-2">
+            <label htmlFor={`${pageSizeId}-page-size`} className="sr-only">
+              Rows per page
+            </label>
+            <span className="text-xs text-muted-foreground">Rows:</span>
+            <select
+              id={`${pageSizeId}-page-size`}
+              className={cn(
+                "h-9 rounded-md border bg-background px-2 text-sm",
+                compact ? "h-8 text-xs" : ""
+              )}
+              value={pageSize}
+              onChange={(e) => onPageSizeChange(Number(e.target.value))}
+            >
+              {pageSizeOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
 
-        <div className="flex items-center gap-1">
-          {pages.map((p, idx) => {
-            const prev = pages[idx - 1]
-            const gap = prev != null ? p - prev : 0
-            return (
-              <React.Fragment key={p}>
-                {idx > 0 && gap > 1 ? (
-                  <span className="px-2 text-xs text-muted-foreground">…</span>
-                ) : null}
-                <Button
-                  type="button"
-                  variant={p === current ? "default" : "outline"}
-                  size={compact ? "sm" : "default"}
-                  onClick={() => onPageChange(p)}
-                  aria-current={p === current ? "page" : undefined}
-                >
-                  {p}
-                </Button>
-              </React.Fragment>
-            )
-          })}
-        </div>
+        <nav aria-label="Pagination" className="flex items-center gap-1">
+          <Button
+            type="button"
+            variant="outline"
+            size={compact ? "sm" : "default"}
+            onClick={() => onPageChange(current - 1)}
+            disabled={current <= 1}
+            aria-label="Previous page"
+          >
+            Prev
+          </Button>
 
-        <Button
-          type="button"
-          variant="outline"
-          size={compact ? "sm" : "default"}
-          onClick={() => onPageChange(current + 1)}
-          disabled={current >= totalPages}
-        >
-          Next
-        </Button>
-      </nav>
+          <div className="flex items-center gap-1">
+            {pages.map((p, idx) => {
+              const prev = pages[idx - 1]
+              const gap = prev != null ? p - prev : 0
+              const isCurrent = p === current
+              return (
+                <React.Fragment key={p}>
+                  {idx > 0 && gap > 1 ? (
+                    <span
+                      aria-hidden="true"
+                      className="px-2 text-xs text-muted-foreground"
+                    >
+                      …
+                    </span>
+                  ) : null}
+                  <Button
+                    type="button"
+                    variant={isCurrent ? "default" : "outline"}
+                    size={compact ? "sm" : "default"}
+                    onClick={() => onPageChange(p)}
+                    aria-current={isCurrent ? "page" : undefined}
+                    aria-label={
+                      isCurrent ? `Page ${p}, current page` : `Go to page ${p}`
+                    }
+                  >
+                    {p}
+                  </Button>
+                </React.Fragment>
+              )
+            })}
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            size={compact ? "sm" : "default"}
+            onClick={() => onPageChange(current + 1)}
+            disabled={current >= totalPages}
+            aria-label="Next page"
+          >
+            Next
+          </Button>
+        </nav>
+      </div>
     </div>
   )
 }

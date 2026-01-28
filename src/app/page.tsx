@@ -24,6 +24,9 @@ export default function Home() {
               <Button asChild>
                 <Link href="/docs">Open docs</Link>
               </Button>
+              <Button asChild variant="secondary">
+                <Link href="/design">Open catalog</Link>
+              </Button>
               <Button asChild variant="outline">
                 <Link href="https://ui.shadcn.com" target="_blank" rel="noreferrer">
                   shadcn/ui

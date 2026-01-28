@@ -1,15 +1,19 @@
 import Link from "next/link"
 
+import type { VariantProps } from "class-variance-authority"
+
 import { ThemeToggle } from "@/app/docs/_components/theme-toggle"
 import { Container, Section, SectionHeader } from "@/components/ds"
-import { Badge } from "@/components/ui/badge"
+import { Badge, badgeVariants } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type ItemStatus = "done" | "in_progress" | "next" | "later"
 
+type BadgeVariant = NonNullable<VariantProps<typeof badgeVariants>["variant"]>
+
 function StatusBadge({ status }: { status: ItemStatus }) {
-  const map: Record<ItemStatus, { label: string; variant: any }> = {
+  const map: Record<ItemStatus, { label: string; variant: BadgeVariant }> = {
     done: { label: "✅ Done", variant: "secondary" },
     in_progress: { label: "🔄 In progress", variant: "outline" },
     next: { label: "⏭ Next", variant: "default" },
@@ -26,7 +30,7 @@ function Row({
   tag,
 }: {
   title: string
-  desc: string
+  desc: React.ReactNode
   status: ItemStatus
   tag?: string
 }) {
@@ -72,6 +76,39 @@ export default function RoadmapPage() {
           <div className="mt-6 grid gap-6">
             <Card>
               <CardHeader>
+                <CardTitle>A11y sweep checklist (verified)</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div>
+                  <p className="font-medium text-foreground">What we checked on /design demos</p>
+                  <ul className="mt-2 list-disc space-y-1 pl-5">
+                    <li>Keyboard navigation: tab order + visible focus rings on primary interactive elements.</li>
+                    <li>
+                      Navigation active state uses <code>aria-current=&quot;page&quot;</code> (NavItem + Pagination).
+                    </li>
+                    <li>Breadcrumbs use a landmark: <code>aria-label=&quot;Breadcrumb&quot;</code>.</li>
+                    <li>
+                      Dialog behavior: Escape closes; focus is trapped while open and returns to trigger (Radix Dialog).
+                    </li>
+                    <li>
+                      Overlay behavior: menus/popovers close on Escape; menu items are arrow-key navigable (Radix primitives).
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="font-medium text-foreground">Remaining gaps</p>
+                  <ul className="mt-2 list-disc space-y-1 pl-5">
+                    <li>Run automated audits (axe/Playwright) in CI for /design routes.</li>
+                    <li>Do a documented contrast pass for token pairs (incl. dark mode).</li>
+                    <li>Validate headings/landmarks hierarchy across all pages (especially templates as they land).</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>Foundations (Tokens)</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-3">
@@ -84,14 +121,14 @@ export default function RoadmapPage() {
                 <Row
                   title="Typography system"
                   desc="type scale, font families/weights, heading rules"
-                  status="next"
-                  tag="tokens/typography"
+                  status="done"
+                  tag="tokens/typography → /design/tokens"
                 />
                 <Row
                   title="Spacing + elevation tokens"
                   desc="documented scale + consistent shadow/backdrop layers"
-                  status="next"
-                  tag="tokens/spacing,elevation"
+                  status="done"
+                  tag="tokens/spacing,elevation → /design/tokens"
                 />
               </CardContent>
             </Card>
@@ -110,13 +147,13 @@ export default function RoadmapPage() {
                 <Row
                   title="Overlays suite"
                   desc="Popover, Dropdown/Menu, Tooltip (keyboard + focus + aria)"
-                  status="in_progress"
-                  tag="overlays"
+                  status="done"
+                  tag="/design/overlays"
                 />
                 <Row
                   title="Loading + feedback"
                   desc="Spinner, Progress, Skeleton, EmptyState"
-                  status="next"
+                  status="done"
                   tag="feedback"
                 />
                 <Row
@@ -148,8 +185,8 @@ export default function RoadmapPage() {
                 <Row
                   title="Data suite"
                   desc="DataTable + FilterBar + Pagination + empty/loading"
-                  status="in_progress"
-                  tag="data"
+                  status="done"
+                  tag="/design/data"
                 />
                 <Row
                   title="Notification center"
@@ -199,7 +236,18 @@ export default function RoadmapPage() {
                 />
                 <Row
                   title="Contribution standards"
-                  desc="how to add a component; naming; variants; demo requirements"
+                  desc={
+                    <>
+                      How to add a component; naming; variants; demo requirements. See{" "}
+                      <Link
+                        className="underline underline-offset-4"
+                        href="/docs/standards"
+                      >
+                        /docs/standards
+                      </Link>
+                      .
+                    </>
+                  }
                   status="next"
                   tag="docs/standards"
                 />

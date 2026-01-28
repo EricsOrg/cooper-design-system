@@ -24,6 +24,9 @@ export default function DocsPage() {
             <Button asChild variant="ghost" size="sm">
               <Link href="/">Home</Link>
             </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/docs/standards">Contribution standards</Link>
+            </Button>
             <ThemeToggle />
           </div>
         </Container>

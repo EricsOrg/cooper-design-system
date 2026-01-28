@@ -14,7 +14,9 @@ export default defineConfig({
       maxDiffPixelRatio: 0.01,
     },
   },
-  reporter: 'list',
+  reporter: process.env.CI
+    ? [['list'], ['html', { open: 'never' }]]
+    : 'list',
   use: {
     baseURL: 'http://127.0.0.1:3100',
     trace: 'retain-on-failure',

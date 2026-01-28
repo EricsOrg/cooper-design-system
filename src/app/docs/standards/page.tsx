@@ -39,6 +39,23 @@ export default function ContributionStandardsPage() {
           <div className="mt-6 grid gap-6">
             <Card>
               <CardHeader>
+                <CardTitle>Component checklist</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3 text-sm">
+                <p className="text-muted-foreground">
+                  A QA-focused checklist (a11y, responsiveness, theming, tokens,
+                  tests, and demo requirements) for shipping components.
+                </p>
+                <Button asChild variant="secondary" size="sm" className="w-fit">
+                  <Link href="/docs/standards/component-checklist">
+                    Open component checklist
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>1) Adding a new component</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-3 text-sm">

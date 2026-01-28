@@ -150,6 +150,20 @@ export default function DesignCatalogPage() {
                 <ToastDemo />
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Navigation suite</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  AppHeader + Sidebar/NavRail + Breadcrumbs + NavItem, composed into an AppShell.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/navigation">Open demo</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>

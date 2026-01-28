@@ -192,6 +192,20 @@ export default function DesignCatalogPage() {
                 </Button>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>DS Gap Checklist</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  The living backlog: what exists, what’s missing, and what we’re burning down next.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/roadmap">Open</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>

@@ -1,0 +1,223 @@
+import Link from "next/link"
+
+import { ThemeToggle } from "@/app/docs/_components/theme-toggle"
+import { Container, Section, SectionHeader } from "@/components/ds"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+type ItemStatus = "done" | "in_progress" | "next" | "later"
+
+function StatusBadge({ status }: { status: ItemStatus }) {
+  const map: Record<ItemStatus, { label: string; variant: any }> = {
+    done: { label: "✅ Done", variant: "secondary" },
+    in_progress: { label: "🔄 In progress", variant: "outline" },
+    next: { label: "⏭ Next", variant: "default" },
+    later: { label: "🕓 Later", variant: "outline" },
+  }
+  const v = map[status]
+  return <Badge variant={v.variant}>{v.label}</Badge>
+}
+
+function Row({
+  title,
+  desc,
+  status,
+  tag,
+}: {
+  title: string
+  desc: string
+  status: ItemStatus
+  tag?: string
+}) {
+  return (
+    <div className="flex flex-col gap-2 rounded-lg border bg-card p-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="min-w-0">
+        <p className="font-medium leading-6">{title}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+        {tag ? (
+          <p className="mt-2 text-xs font-mono text-muted-foreground">{tag}</p>
+        ) : null}
+      </div>
+      <div className="shrink-0"> <StatusBadge status={status} /> </div>
+    </div>
+  )
+}
+
+export default function RoadmapPage() {
+  return (
+    <main>
+      <header className="border-b">
+        <Container className="flex items-center justify-between py-6">
+          <div className="space-y-1">
+            <p className="text-sm text-muted-foreground">Source of truth</p>
+            <h1 className="text-xl font-semibold tracking-tight">DS Gap Checklist / Roadmap</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/design">Back to /design</Link>
+            </Button>
+            <ThemeToggle />
+          </div>
+        </Container>
+      </header>
+
+      <Section>
+        <Container>
+          <SectionHeader
+            title="What’s missing (and what we’re shipping next)"
+            description="This is the living backlog for making the design system ‘build almost anything’ without reinventing primitives."
+          />
+
+          <div className="mt-6 grid gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Foundations (Tokens)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Row
+                  title="Semantic colors + theme"
+                  desc="brand/surface/background/fg/border/ring + light/dark"
+                  status="done"
+                  tag="shipped"
+                />
+                <Row
+                  title="Typography system"
+                  desc="type scale, font families/weights, heading rules"
+                  status="next"
+                  tag="tokens/typography"
+                />
+                <Row
+                  title="Spacing + elevation tokens"
+                  desc="documented scale + consistent shadow/backdrop layers"
+                  status="next"
+                  tag="tokens/spacing,elevation"
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Primitives (Atoms / Molecules)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Row
+                  title="Core controls"
+                  desc="Button, Input, Card, Badge, Tabs, Modal, Toast, Select, Checkbox/Radio, Textarea"
+                  status="done"
+                  tag="/design + /design/forms"
+                />
+                <Row
+                  title="Overlays suite"
+                  desc="Popover, Dropdown/Menu, Tooltip (keyboard + focus + aria)"
+                  status="in_progress"
+                  tag="overlays"
+                />
+                <Row
+                  title="Loading + feedback"
+                  desc="Spinner, Progress, Skeleton, EmptyState"
+                  status="next"
+                  tag="feedback"
+                />
+                <Row
+                  title="Combobox / Autocomplete"
+                  desc="searchable select pattern"
+                  status="later"
+                  tag="combobox"
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Organisms (Patterns)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Row
+                  title="Navigation suite"
+                  desc="AppHeader + Sidebar/NavRail + Breadcrumbs + NavItem"
+                  status="done"
+                  tag="/design/navigation"
+                />
+                <Row
+                  title="Forms suite"
+                  desc="FormSection + field patterns (hint/error/required)"
+                  status="done"
+                  tag="/design/forms"
+                />
+                <Row
+                  title="Data suite"
+                  desc="DataTable + FilterBar + Pagination + empty/loading"
+                  status="in_progress"
+                  tag="data"
+                />
+                <Row
+                  title="Notification center"
+                  desc="pattern for persistent alerts vs transient toasts"
+                  status="later"
+                  tag="notifications"
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Templates (Pages / Layouts)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Row
+                  title="AppShell"
+                  desc="nav + header + content layout pattern"
+                  status="done"
+                  tag="used by /design/navigation"
+                />
+                <Row
+                  title="MarketingLanding"
+                  desc="hero → proof → features → testimonials → CTA"
+                  status="in_progress"
+                  tag="templates/marketing"
+                />
+                <Row
+                  title="CRUD list/detail"
+                  desc="filters + table + pagination; detail w/ sections"
+                  status="later"
+                  tag="templates/crud"
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>System quality</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Row
+                  title="A11y sweep"
+                  desc="keyboard, focus order, aria, contrast across demos"
+                  status="next"
+                  tag="a11y"
+                />
+                <Row
+                  title="Contribution standards"
+                  desc="how to add a component; naming; variants; demo requirements"
+                  status="next"
+                  tag="docs/standards"
+                />
+                <Row
+                  title="Visual regression"
+                  desc="baseline screenshots or lightweight checks"
+                  status="later"
+                  tag="qa/visual"
+                />
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-10 rounded-xl border bg-muted/20 p-4 text-sm text-muted-foreground">
+            Rule: every DS change should either (1) close a checklist item, or (2) deepen a demo page that proves it.
+          </div>
+        </Container>
+      </Section>
+    </main>
+  )
+}

@@ -153,6 +153,20 @@ export default function DesignCatalogPage() {
 
             <Card>
               <CardHeader>
+                <CardTitle>Overlays</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  Tooltip + Popover + Dropdown/Menu primitives for lightweight UI overlays.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/overlays">Open demo</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>Navigation suite</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap items-center justify-between gap-3">

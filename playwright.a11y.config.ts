@@ -25,7 +25,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npm run build && npm run start -- --port ${PORT}`,
+    // In CI we run `npm run build` as a separate step for clearer logs + caching.
+    // Locally, keep the a11y script self-contained.
+    command: process.env.CI
+      ? `npm run start -- --port ${PORT}`
+      : `npm run build && npm run start -- --port ${PORT}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

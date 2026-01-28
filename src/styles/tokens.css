@@ -11,6 +11,99 @@
   /* radii */
   --radius: 0.625rem;
 
+  /* typography: font families */
+  --font-family-sans: var(--font-geist-sans), ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* typography: font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* typography: type scale (size + line-height)
+     Use Tailwind classes (text-*) as the public API.
+     These raw tokens are mapped in app/globals.css.
+  */
+  --type-xs-size: 0.75rem;
+  --type-xs-line: 1rem;
+
+  --type-sm-size: 0.875rem;
+  --type-sm-line: 1.25rem;
+
+  --type-base-size: 1rem;
+  --type-base-line: 1.5rem;
+
+  --type-lg-size: 1.125rem;
+  --type-lg-line: 1.75rem;
+
+  --type-xl-size: 1.25rem;
+  --type-xl-line: 1.75rem;
+
+  --type-2xl-size: 1.5rem;
+  --type-2xl-line: 2rem;
+
+  --type-3xl-size: 1.875rem;
+  --type-3xl-line: 2.25rem;
+
+  --type-4xl-size: 2.25rem;
+  --type-4xl-line: 2.5rem;
+
+  --type-5xl-size: 3rem;
+  --type-5xl-line: 1;
+
+  /* typography: heading rules */
+  --heading-font-family: var(--font-family-sans);
+  --heading-font-weight: var(--font-weight-semibold);
+  --heading-tracking: -0.02em;
+
+  --heading-h1-size: var(--type-4xl-size);
+  --heading-h1-line: var(--type-4xl-line);
+
+  --heading-h2-size: var(--type-3xl-size);
+  --heading-h2-line: var(--type-3xl-line);
+
+  --heading-h3-size: var(--type-2xl-size);
+  --heading-h3-line: var(--type-2xl-line);
+
+  --heading-h4-size: var(--type-xl-size);
+  --heading-h4-line: var(--type-xl-line);
+
+  /* spacing: documented scale */
+  --space-0: 0px;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+
+  /* elevation: consistent shadow stack */
+  --shadow-color: 0 0 0;
+  --elevation-0: none;
+  --elevation-1: 0 1px 2px 0 rgb(var(--shadow-color) / 0.06),
+    0 1px 1px -1px rgb(var(--shadow-color) / 0.06);
+  --elevation-2: 0 1px 3px 0 rgb(var(--shadow-color) / 0.1),
+    0 1px 2px -1px rgb(var(--shadow-color) / 0.1);
+  --elevation-3: 0 4px 6px -1px rgb(var(--shadow-color) / 0.12),
+    0 2px 4px -2px rgb(var(--shadow-color) / 0.12);
+  --elevation-4: 0 10px 15px -3px rgb(var(--shadow-color) / 0.12),
+    0 4px 6px -4px rgb(var(--shadow-color) / 0.12);
+  --elevation-5: 0 20px 25px -5px rgb(var(--shadow-color) / 0.18),
+    0 8px 10px -6px rgb(var(--shadow-color) / 0.18);
+
+  /* backdrops (overlays) */
+  --backdrop-scrim: rgb(0 0 0 / 0.45);
+  --backdrop-blur: 8px;
+
   /* color primitives (tailwind maps these via @theme inline) */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -119,6 +212,10 @@
 
   --surface: oklch(0.205 0 0);
   --surface-foreground: oklch(0.985 0 0);
+
+  /* elevation/backdrops can shift slightly in dark */
+  --shadow-color: 0 0 0;
+  --backdrop-scrim: rgb(0 0 0 / 0.6);
 }
 
 @media (prefers-reduced-motion: reduce) {

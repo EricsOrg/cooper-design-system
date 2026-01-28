@@ -77,9 +77,7 @@ export function AppShell({
 
       <div className="grid min-h-0 grid-cols-1 md:grid-cols-[auto_1fr]">
         {/* Desktop nav */}
-        <div className={cn("hidden md:block", useRailOnDesktop ? "" : "")}
-          aria-hidden={false}
-        >
+        <div className={cn("hidden md:block")}>
           {useRailOnDesktop ? (
             <Sidebar variant="rail">{navRail ?? sidebar}</Sidebar>
           ) : (

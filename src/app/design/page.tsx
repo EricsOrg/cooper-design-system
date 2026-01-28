@@ -229,8 +229,9 @@ function TokenSwatch({
   className?: string
 }) {
   return (
-    <div className={"grid gap-2"}>
-      <div className={"rounded-lg p-4 " + (className ?? "")}
+    <div className="grid gap-2">
+      <div
+        className={`rounded-lg p-4 ${className ?? ""}`}
         style={{ minHeight: 72 }}
       >
         <p className="text-sm font-medium">Aa</p>

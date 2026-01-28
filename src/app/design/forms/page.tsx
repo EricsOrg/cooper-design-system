@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { ThemeToggle } from "@/app/docs/_components/theme-toggle"
+import { AsyncComboboxDemo } from "@/app/design/forms/_components/async-combobox-demo"
 import { Container, FormSection, Section, SectionHeader } from "@/components/ds"
 import { FormField, Select, Checkbox, Radio, Textarea } from "@/components/ds/forms"
 import { Button } from "@/components/ui/button"
@@ -101,6 +102,23 @@ export default function FormsDesignPage() {
                 />
               </div>
             </FormSection>
+          </div>
+
+          <div className="mt-10 max-w-lg">
+            <SectionHeader
+              title="Combobox / Autocomplete"
+              description="Async search + keyboard navigation + loading/empty states."
+            />
+
+            <div className="mt-6">
+              <FormField
+                label="Assign to"
+                htmlFor="assignee"
+                hint="Start typing to simulate an async fetch."
+              >
+                <AsyncComboboxDemo />
+              </FormField>
+            </div>
           </div>
         </Container>
       </Section>

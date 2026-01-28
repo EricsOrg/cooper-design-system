@@ -20,6 +20,37 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Visual regression (v0)
+
+This repo includes lightweight Playwright screenshot tests for key `/design` routes.
+
+### One-time setup
+
+```bash
+npx playwright install
+```
+
+### Run visual tests
+
+```bash
+npm run test:visual
+```
+
+### Update baselines (approve new screenshots)
+
+```bash
+npm run test:visual:update
+```
+
+Baselines are stored as Playwright snapshots under `tests/visual/*.snapshots/` and are committed to git.
+
+Tips:
+- If you changed component styles intentionally, run `test:visual:update` and commit the updated snapshots.
+- If you only want to re-generate a single test, pass `-g`:
+  ```bash
+  npx playwright test -g "overlays" --update-snapshots
+  ```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

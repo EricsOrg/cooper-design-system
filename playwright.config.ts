@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { defineConfig } from '@playwright/test';
 
 // Lightweight visual regression for v0:
@@ -14,6 +15,8 @@ export default defineConfig({
     toHaveScreenshot: {
       animations: 'disabled',
       caret: 'hide',
+      // Additional CSS to eliminate transition/scroll/caret-related flake.
+      stylePath: path.join(__dirname, 'tests/visual/screenshot.css'),
       maxDiffPixelRatio: 0.01,
     },
   },
@@ -40,6 +43,10 @@ export default defineConfig({
       name: 'chromium',
       use: {
         browserName: 'chromium',
+        launchOptions: {
+          // Helps reduce minor color management differences across environments.
+          args: ['--force-color-profile=srgb'],
+        },
       },
     },
   ],

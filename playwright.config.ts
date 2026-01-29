@@ -51,7 +51,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev -- --port 3100',
+    // In CI, run Next.js in production mode for more deterministic rendering.
+    // Locally, keep dev mode for fast iteration.
+    command: process.env.CI
+      ? 'npm run build && npm run start -- -p 3100'
+      : 'npm run dev -- --port 3100',
     url: 'http://127.0.0.1:3100',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

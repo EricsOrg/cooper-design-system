@@ -10,6 +10,8 @@ type Route = {
 
 const routes: Route[] = [
   { name: 'Design', path: '/design' },
+  { name: 'Marketing', path: '/design/marketing' },
+  { name: 'Notifications', path: '/design/notifications' },
   { name: 'Overlays', path: '/design/overlays' },
   { name: 'Navigation', path: '/design/navigation', expectAriaCurrent: true },
   { name: 'Forms', path: '/design/forms' },

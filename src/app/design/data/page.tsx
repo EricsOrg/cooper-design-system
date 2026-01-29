@@ -8,7 +8,7 @@ import { DataDemo } from "@/app/design/data.demo"
 
 export default function DataDesignPage() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">

@@ -28,7 +28,7 @@ async function stabilizePage(page: Page) {
 
 test.describe('visual: design system routes', () => {
   test('design index', async ({ page }) => {
-    await page.goto('/design', { waitUntil: 'networkidle' });
+    await page.goto('/design', { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('main');
     await stabilizePage(page);
 
@@ -36,7 +36,7 @@ test.describe('visual: design system routes', () => {
   });
 
   test('overlays page + popover open', async ({ page }) => {
-    await page.goto('/design/overlays', { waitUntil: 'networkidle' });
+    await page.goto('/design/overlays', { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('main');
     await stabilizePage(page);
 

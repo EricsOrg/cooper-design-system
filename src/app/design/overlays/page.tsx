@@ -8,7 +8,7 @@ import { OverlaysDemo } from "@/app/design/_components/overlays-demo"
 
 export default function OverlaysDesignPage() {
   return (
-    <main>
+    <main id="main-content">
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">

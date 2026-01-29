@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function NotificationsDesignPage() {
   return (
-    <main>
+    <main id="main-content">
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">

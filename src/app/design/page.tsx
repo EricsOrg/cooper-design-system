@@ -12,7 +12,7 @@ import { ToastDemo } from "@/app/design/_components/toast-demo"
 
 export default function DesignCatalogPage() {
   return (
-    <main>
+    <main id="main-content">
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">
@@ -88,8 +88,14 @@ export default function DesignCatalogPage() {
                 <CardTitle>Input</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-3 sm:max-w-sm">
-                <Input placeholder="Email" type="email" />
-                <Input placeholder="Disabled" disabled />
+                <label className="grid gap-1">
+                  <span className="text-xs font-medium">Email</span>
+                  <Input id="catalog-email" placeholder="name@company.com" type="email" />
+                </label>
+                <label className="grid gap-1">
+                  <span className="text-xs font-medium">Disabled input</span>
+                  <Input id="catalog-disabled" placeholder="Disabled" disabled />
+                </label>
               </CardContent>
             </Card>
 

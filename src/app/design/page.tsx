@@ -163,6 +163,20 @@ export default function DesignCatalogPage() {
 
             <Card>
               <CardHeader>
+                <CardTitle>Notifications</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  Toasts (transient) vs Notification Center (persistent, unread/read).
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/notifications">Open demo</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>Overlays</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap items-center justify-between gap-3">

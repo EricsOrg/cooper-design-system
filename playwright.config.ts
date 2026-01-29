@@ -29,9 +29,11 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
     deviceScaleFactor: 1,
     colorScheme: 'light',
-    reducedMotion: 'reduce',
     locale: 'en-US',
     timezoneId: 'UTC',
+    contextOptions: {
+      reducedMotion: 'reduce',
+    },
   },
   projects: [
     {

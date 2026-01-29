@@ -18,7 +18,7 @@ export type ComboboxProps = {
   /** Pass-through props for the underlying input (id, name, autoComplete, etc.). */
   inputProps?: Omit<
     React.ComponentProps<"input">,
-    "value" | "defaultValue" | "onChange" | "disabled" | "placeholder"
+    "value" | "defaultValue" | "disabled" | "placeholder"
   >
 
   /** Selected value (controlled). */

@@ -191,8 +191,8 @@ export default function RoadmapPage() {
                 <Row
                   title="Notification center"
                   desc="pattern for persistent alerts vs transient toasts"
-                  status="later"
-                  tag="notifications"
+                  status="done"
+                  tag="/design/notifications"
                 />
               </CardContent>
             </Card>
@@ -254,8 +254,8 @@ export default function RoadmapPage() {
                 <Row
                   title="Visual regression"
                   desc="baseline screenshots or lightweight checks"
-                  status="later"
-                  tag="qa/visual"
+                  status="in_progress"
+                  tag="playwright screenshot tests + CI groundwork"
                 />
               </CardContent>
             </Card>

@@ -12,6 +12,18 @@ async function stabilizePage(page: Page) {
       html { scroll-behavior: auto !important; }
     `,
   });
+
+  // Ensure webfonts have settled before taking a screenshot.
+  await page.evaluate(async () => {
+    // Ensure webfonts have settled before taking a screenshot.
+    if ("fonts" in document && document.fonts) {
+      await document.fonts.ready
+    }
+
+    // Let layout/paint flush.
+    await new Promise<void>((r) => requestAnimationFrame(() => r()))
+    await new Promise<void>((r) => requestAnimationFrame(() => r()))
+  })
 }
 
 test.describe('visual: design system routes', () => {

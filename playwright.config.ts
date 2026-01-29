@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 // Lightweight visual regression for v0:
 // - Runs against a locally started Next.js server (see webServer)
@@ -9,8 +9,11 @@ export default defineConfig({
   testDir: './tests',
   timeout: 60_000,
   expect: {
-    // Allow small diffs from subpixel rendering/font rasterization.
+    // Make screenshots as deterministic as possible across CI runs.
+    // Keep a small tolerance for rare subpixel/font rasterization differences.
     toHaveScreenshot: {
+      animations: 'disabled',
+      caret: 'hide',
       maxDiffPixelRatio: 0.01,
     },
   },
@@ -21,14 +24,21 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:3100',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
+
+    // Determinism knobs for visual regression.
     viewport: { width: 1280, height: 720 },
-    // Reduce flake from animations/caret.
+    deviceScaleFactor: 1,
     colorScheme: 'light',
+    reducedMotion: 'reduce',
+    locale: 'en-US',
+    timezoneId: 'UTC',
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        browserName: 'chromium',
+      },
     },
   ],
   webServer: {

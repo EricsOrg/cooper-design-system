@@ -42,7 +42,9 @@ npm run test:visual
 npm run test:visual:update
 ```
 
-Baselines are stored as Playwright snapshots under `tests/visual/*.snapshots/` and are committed to git.
+Baselines are stored as Playwright snapshots under `tests/visual/**/*-snapshots/` and are committed to git.
+
+More details (including CI + determinism notes): see [`docs/visual-regression.md`](./docs/visual-regression.md).
 
 Tips:
 - If you changed component styles intentionally, run `test:visual:update` and commit the updated snapshots.

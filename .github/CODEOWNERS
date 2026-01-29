@@ -1,0 +1,9 @@
+# CODEOWNERS
+#
+# Add your GitHub users/teams to enable automatic review requests.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Example:
+# * @your-org/design-system
+# /src/design-system/ @your-org/design-system
+# /src/components/ds/ @your-org/design-system

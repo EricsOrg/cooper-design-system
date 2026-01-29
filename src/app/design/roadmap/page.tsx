@@ -211,8 +211,8 @@ export default function RoadmapPage() {
                 <Row
                   title="MarketingLanding"
                   desc="hero → proof → features → testimonials → CTA"
-                  status="in_progress"
-                  tag="templates/marketing"
+                  status="done"
+                  tag="/design/marketing"
                 />
                 <Row
                   title="CRUD list/detail"

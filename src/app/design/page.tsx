@@ -219,6 +219,20 @@ export default function DesignCatalogPage() {
 
             <Card>
               <CardHeader>
+                <CardTitle>Marketing landing template</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  A ready-to-swap marketing page: hero → proof → features → testimonials → CTA.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/design/marketing">Open template</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>DS Gap Checklist</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap items-center justify-between gap-3">

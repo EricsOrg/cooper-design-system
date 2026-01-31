@@ -34,7 +34,7 @@ export default async function TokensPage() {
   const { typeScale, spacingScale, elevationScale } = await getDesignTokens()
 
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">

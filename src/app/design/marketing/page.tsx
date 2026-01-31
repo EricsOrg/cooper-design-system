@@ -63,7 +63,7 @@ const testimonials = [
 
 export default function MarketingLandingTemplatePage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <header className="border-b">
         <Container className="flex items-center justify-between py-6">
           <div className="space-y-1">

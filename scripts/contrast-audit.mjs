@@ -153,8 +153,6 @@ const pairsUi = [
 ];
 
 function audit(modeName, tokens) {
-  const bg = toSrgb(tokens.background);
-
   const rows = [];
   for (const [fgName, bgName] of [...pairsText, ...pairsUi]) {
     const fgStr = tokens[fgName];

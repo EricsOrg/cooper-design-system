@@ -1,0 +1,16 @@
+/*
+  Applied by Playwright during toHaveScreenshot.
+  Goal: reduce flake from animations/transitions/caret/scroll behavior.
+*/
+
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  caret-color: transparent !important;
+}
+
+html {
+  scroll-behavior: auto !important;
+}

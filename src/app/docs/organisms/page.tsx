@@ -6,7 +6,14 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-const ORGANISMS = [
+type OrganismListItem = { name: string; description: string; href?: string }
+
+const ORGANISMS: OrganismListItem[] = [
+  {
+    name: "QueryRail",
+    description: "Search + faceted filters + active chips + clear all (responsive)",
+    href: "/docs/organisms/query-rail",
+  },
   { name: "AppShell", description: "Top nav + side rail + content layout + responsive behavior" },
   { name: "DashboardOverview", description: "Cards + filters + (stub) charts" },
   { name: "DataTablePage", description: "Filter bar + bulk actions + table + pagination" },
@@ -86,7 +93,10 @@ export default function OrganismsDocsPage() {
                 <ol className="list-decimal space-y-2 pl-5">
                   {ORGANISMS.map((o) => (
                     <li key={o.name}>
-                      <span className="font-medium">{o.name}</span>: {o.description}
+                      <span className="font-medium">
+                        {o.href ? <Link href={o.href}>{o.name}</Link> : o.name}
+                      </span>
+                      : {o.description}
                     </li>
                   ))}
                 </ol>

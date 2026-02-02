@@ -16,6 +16,11 @@ const ORGANISMS: OrganismListItem[] = [
   },
   { name: "AppShell", description: "Top nav + side rail + content layout + responsive behavior" },
   { name: "DashboardOverview", description: "Cards + filters + (stub) charts" },
+  {
+    name: "ResultsTable",
+    description: "Power list table: sorting + pagination + selection + column visibility",
+    href: "/docs/organisms/results-table",
+  },
   { name: "DataTablePage", description: "Filter bar + bulk actions + table + pagination" },
   { name: "DetailPage", description: "Header/actions + metadata + tabs" },
   { name: "CreateEditForm", description: "Sectioned form + validation + sticky footer actions" },

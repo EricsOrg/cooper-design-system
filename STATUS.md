@@ -21,3 +21,4 @@
 - Kick first build batch: Button, Text Input, Card, Modal, Toast/Alert
 - Establish CI checks (a11y + visual)
 - Add typography tokens to token source files
+- Publish docs: TOKENS, CONTRAST, ACCESSIBILITY

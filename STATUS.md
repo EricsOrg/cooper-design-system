@@ -4,12 +4,14 @@
 - PRD + checklist published. Taxonomy + implementation plan published. Ready to execute first component batch.
 
 ## Workstream Standup (Live)
-- **CB (Owner):** Published DESIGN_TAXONOMY + IMPLEMENTATION_PLAN; preparing first batch kickoff.
-- **Mike (Tech Lead):** Architecture decisions for DS completion + guardrails
-- **Ava (PM):** PRD draft + scope/P0/P1 list
-- **Riley (Design):** DS audit + missing components + IA for catalog
-- **Casey (Frontend):** Repo audit + component gap map
-- **Morgan (QA):** a11y/test plan draft
+| Member | Yesterday | Today | Blockers |
+|---|---|---|---|
+| CB (Owner) | Published DESIGN_TAXONOMY + IMPLEMENTATION_PLAN | Published BACKLOG v1; start P0 Typography scale + usage | None |
+| Mike (Tech Lead) | Drafted architecture/guardrail notes | Finalize architecture decisions + guardrails | None |
+| Ava (PM) | PRD draft + scope/P0/P1 list | Finalize PRD v1 + scope | None |
+| Riley (Design) | DS audit + missing components | Deliver audit findings + token integrity notes | None |
+| Casey (Frontend) | Repo audit + component gap map | Prep first batch components (Button/Input/Card/Modal/Toast) | None |
+| Morgan (QA) | a11y/test plan draft | Expand a11y checklist + regression plan | None |
 
 ## Blockers
 - None reported.

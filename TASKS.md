@@ -6,7 +6,7 @@
 | Done | CB | Publish Implementation Plan | docs/IMPLEMENTATION_PLAN.md |
 | Done | CB | Convert checklist → backlog (owners + priority) | docs/BACKLOG.md |
 | In Progress | CB | Kick first build batch (Button, Text Input, Card, Modal, Toast/Alert) | MVP batch |
-| In Progress | CB | P0 Typography scale + usage | Start with tokens + guidance |
+| In Progress | CB | P0 Typography scale + usage | Drafted docs/TYPOGRAPHY.md; next: token integration |
 | In Progress | Ava | PRD v1 + scope/P0/P1 list | ETA: tonight |
 | In Progress | Riley | DS audit + component gaps | ETA: tonight |
 | In Progress | Casey | Repo audit + gap map | ETA: tonight |

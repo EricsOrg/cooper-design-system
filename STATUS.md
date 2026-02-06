@@ -1,9 +1,10 @@
 # Design System Status
 
 ## TL;DR
-- Initial audit + PRD in progress.
+- PRD + checklist published. Taxonomy + implementation plan published. Ready to execute first component batch.
 
 ## Workstream Standup (Live)
+- **CB (Owner):** Published DESIGN_TAXONOMY + IMPLEMENTATION_PLAN; preparing first batch kickoff.
 - **Mike (Tech Lead):** Architecture decisions for DS completion + guardrails
 - **Ava (PM):** PRD draft + scope/P0/P1 list
 - **Riley (Design):** DS audit + missing components + IA for catalog
@@ -11,9 +12,10 @@
 - **Morgan (QA):** a11y/test plan draft
 
 ## Blockers
-- None yet (awaiting PRD completion + final scope lock).
+- None reported.
 
 ## Next 24h
-- Publish PRD v1 + DS completion checklist
-- Create backlog w/ owners + priority
-- Kick first build batch
+- Lock token definitions
+- Kick first build batch: Button, Text Input, Card, Modal, Toast/Alert
+- Establish CI checks (a11y + visual)
+- Convert checklist to tracked backlog

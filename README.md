@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 For contribution guidelines (dev workflow, checks, snapshots), see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
+## Design System Docs
+- [PRD](./PRD.md)
+- [Completion Checklist](./CHECKLIST.md)
+- [Design Taxonomy](./docs/DESIGN_TAXONOMY.md)
+- [Implementation Plan](./docs/IMPLEMENTATION_PLAN.md)
+
 First, run the development server:
 
 ```bash

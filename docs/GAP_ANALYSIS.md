@@ -23,6 +23,6 @@ The DS codebase already contains the majority of atoms and molecules. The primar
 - Checklist + docs coverage (most exist but not reflected in CHECKLIST.md)
 
 ## Next Actions
-1) Reconcile CHECKLIST.md with actual repo inventory.
-2) Add/expand component docs for atoms + molecules.
-3) Add QA checklist + a11y notes for each component.
+1) ✅ Reconciled CHECKLIST.md with repo inventory.
+2) ✅ Added/expanded docs for tokens/contrast/accessibility.
+3) ⏭️ Add per‑component docs pages + deeper QA checklist as follow‑up.

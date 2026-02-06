@@ -1,9 +1,9 @@
 # DS Completion Checklist (Atomic Design)
 
 ## Atoms (must be perfect)
-- [ ] Typography scale + usage
-- [ ] Color tokens + contrast table
-- [ ] Spacing + radii + shadows + motion tokens
+- [x] Typography scale + usage
+- [x] Color tokens + contrast table
+- [x] Spacing + radii + shadows + motion tokens
 - [x] Button (variants, sizes, states)
 - [x] Input (text, number, password, search)
 - [x] Icon system + sizing

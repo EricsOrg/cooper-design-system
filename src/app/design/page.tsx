@@ -1,11 +1,15 @@
 import Link from "next/link"
+import { ArrowRight, Heart, Link2 } from "lucide-react"
 
 import { ThemeToggle } from "@/app/docs/_components/theme-toggle"
 import { Container, Section, SectionHeader } from "@/components/ds"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Divider } from "@/components/ui/divider"
+import { Icon } from "@/components/ui/icon"
 import { Input } from "@/components/ui/input"
+import { Link as TextLink } from "@/components/ui/link"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ModalDemo } from "@/app/design/_components/modal-demo"
 import { ToastDemo } from "@/app/design/_components/toast-demo"
@@ -96,6 +100,45 @@ export default function DesignCatalogPage() {
                   <span className="text-xs font-medium">Disabled input</span>
                   <Input id="catalog-disabled" placeholder="Disabled" disabled />
                 </label>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Icon + Link + Divider</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+                  <Icon icon={Link2} />
+                  <Icon icon={ArrowRight} size="md" />
+                  <Icon icon={Heart} size="lg" className="text-destructive" />
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <TextLink asChild>
+                    <Link href="/design">Default link</Link>
+                  </TextLink>
+                  <TextLink asChild variant="muted">
+                    <Link href="/design/tokens">Muted link</Link>
+                  </TextLink>
+                  <TextLink
+                    variant="destructive"
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    External link
+                  </TextLink>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-muted-foreground">Left label</span>
+                  <Divider className="max-w-[120px]" />
+                  <span className="text-sm text-muted-foreground">Right label</span>
+                </div>
+                <div className="flex h-10 items-center gap-4">
+                  <span className="text-sm text-muted-foreground">Left</span>
+                  <Divider orientation="vertical" />
+                  <span className="text-sm text-muted-foreground">Right</span>
+                </div>
               </CardContent>
             </Card>
 

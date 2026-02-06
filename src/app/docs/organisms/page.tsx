@@ -8,20 +8,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type OrganismListItem = { name: string; description: string; href?: string }
 
-const ORGANISMS: OrganismListItem[] = [
+type PlannedOrganism = { name: string; description: string }
+
+const IMPLEMENTED_ORGANISMS: OrganismListItem[] = [
   {
     name: "QueryRail",
     description: "Search + faceted filters + active chips + clear all (responsive)",
     href: "/docs/organisms/query-rail",
   },
-  { name: "AppShell", description: "Top nav + side rail + content layout + responsive behavior" },
-  { name: "DashboardOverview", description: "Cards + filters + (stub) charts" },
   {
     name: "ResultsTable",
     description: "Power list table: sorting + pagination + selection + column visibility",
     href: "/docs/organisms/results-table",
   },
-  { name: "DataTablePage", description: "Filter bar + bulk actions + table + pagination" },
+  {
+    name: "AppLayout",
+    description: "App shell layout wrapper for header + navigation + content.",
+  },
+  {
+    name: "DataTablePage",
+    description: "Filter bar + bulk actions + table + pagination layout.",
+  },
+]
+
+const PLANNED_ORGANISMS: PlannedOrganism[] = [
+  { name: "DashboardOverview", description: "Cards + filters + (stub) charts" },
   { name: "DetailPage", description: "Header/actions + metadata + tabs" },
   { name: "CreateEditForm", description: "Sectioned form + validation + sticky footer actions" },
   { name: "WizardStepper", description: "Multi-step flow + review" },
@@ -55,8 +66,8 @@ export default function OrganismsDocsPage() {
       <Section>
         <Container>
           <SectionHeader
-            title="Build 10 dynamic organisms"
-            description="Organisms are higher-level, app-ready compositions built from primitives + the DS layer. They must be token-driven, themeable, and demo-backed."
+            title="Organisms = app-ready compositions"
+            description="Organisms are higher-level compositions built from atoms + molecules. The list below tracks what exists today and what remains in the backlog."
           />
 
           <div className="mt-6 grid gap-6">
@@ -92,16 +103,31 @@ export default function OrganismsDocsPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Organism list</CardTitle>
+                <CardTitle>Implemented organisms</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-3 text-sm">
                 <ol className="list-decimal space-y-2 pl-5">
-                  {ORGANISMS.map((o) => (
+                  {IMPLEMENTED_ORGANISMS.map((o) => (
                     <li key={o.name}>
                       <span className="font-medium">
                         {o.href ? <Link href={o.href}>{o.name}</Link> : o.name}
                       </span>
                       : {o.description}
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Planned / backlog</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3 text-sm">
+                <ol className="list-decimal space-y-2 pl-5 text-muted-foreground">
+                  {PLANNED_ORGANISMS.map((o) => (
+                    <li key={o.name}>
+                      <span className="font-medium text-foreground">{o.name}</span>: {o.description}
                     </li>
                   ))}
                 </ol>

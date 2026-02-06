@@ -3,9 +3,22 @@ import Link from "next/link"
 import { ThemeToggle } from "@/app/docs/_components/theme-toggle"
 import { AsyncComboboxDemo } from "@/app/design/forms/_components/async-combobox-demo"
 import { Container, FormSection, Section, SectionHeader } from "@/components/ds"
-import { FormField, Select, Checkbox, Radio, Textarea } from "@/components/ds/forms"
+import {
+  FormField,
+  Select,
+  Checkbox,
+  Radio,
+  Textarea,
+  Toggle,
+} from "@/components/ds/forms"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import {
+  InputGroup,
+  InputGroupPrefix,
+  InputGroupSuffix,
+  InputGroupInput,
+} from "@/components/ui/input-group"
 
 export default function FormsDesignPage() {
   return (
@@ -46,6 +59,22 @@ export default function FormsDesignPage() {
                 <Input id="email" type="email" placeholder="name@company.com" />
               </FormField>
 
+              <FormField
+                label="Company domain"
+                htmlFor="company-domain"
+                hint="Input group with prefix + suffix slots."
+              >
+                <InputGroup>
+                  <InputGroupPrefix>https://</InputGroupPrefix>
+                  <InputGroupInput
+                    id="company-domain"
+                    placeholder="acme"
+                    aria-describedby="company-domain-hint"
+                  />
+                  <InputGroupSuffix>.com</InputGroupSuffix>
+                </InputGroup>
+              </FormField>
+
               <FormField label="Company size" htmlFor="size">
                 <Select id="size" defaultValue="10-50">
                   <option value="1-10">1–10</option>
@@ -83,6 +112,13 @@ export default function FormsDesignPage() {
                 id="share"
                 label="Share artifacts with my team"
                 description="Lets us send the demo URL to a small group."
+              />
+
+              <Toggle
+                id="sla"
+                label="Enable SLA notifications"
+                description="Use a switch for binary preferences that don’t need a checkbox list."
+                defaultChecked
               />
 
               <div className="grid gap-2">

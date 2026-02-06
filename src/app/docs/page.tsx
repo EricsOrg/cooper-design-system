@@ -31,6 +31,12 @@ export default function DocsPage() {
               <Link href="/docs/contacts">Contacts</Link>
             </Button>
             <Button asChild variant="ghost" size="sm">
+              <Link href="/docs/atoms">Atoms</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/docs/molecules">Molecules</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
               <Link href="/docs/organisms">Organisms</Link>
             </Button>
             <Button asChild variant="ghost" size="sm">
@@ -49,6 +55,29 @@ export default function DocsPage() {
           />
 
           <div className="mt-8 grid gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Component inventory</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3 text-sm">
+                <p className="text-muted-foreground">
+                  Browse the living inventory for each layer. Atoms and molecules
+                  capture the current primitives; organisms document larger patterns.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Button asChild size="sm" variant="outline">
+                    <Link href="/docs/atoms">Atoms</Link>
+                  </Button>
+                  <Button asChild size="sm" variant="outline">
+                    <Link href="/docs/molecules">Molecules</Link>
+                  </Button>
+                  <Button asChild size="sm" variant="outline">
+                    <Link href="/docs/organisms">Organisms</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Button</CardTitle>

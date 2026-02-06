@@ -6,6 +6,8 @@ import { ToastDemo } from "@/app/design/_components/toast-demo"
 import { Container, Section, SectionHeader } from "@/components/ds"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { InlineMessage } from "@/components/ui/inline-message"
 
 export default function NotificationsDesignPage() {
   return (
@@ -53,6 +55,45 @@ export default function NotificationsDesignPage() {
               </CardHeader>
               <CardContent>
                 <NotificationCenterDemo />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Alert (inline panel)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <Alert>
+                  <AlertTitle>Heads up</AlertTitle>
+                  <AlertDescription>
+                    Alerts are persistent inline callouts. Use toasts for transient
+                    feedback.
+                  </AlertDescription>
+                </Alert>
+                <Alert variant="success">
+                  <AlertTitle>Success</AlertTitle>
+                  <AlertDescription>Contract sent and stored for audit.</AlertDescription>
+                </Alert>
+                <Alert variant="warning">
+                  <AlertTitle>Review required</AlertTitle>
+                  <AlertDescription>We need an approver before shipping.</AlertDescription>
+                </Alert>
+                <Alert variant="destructive">
+                  <AlertTitle>Action blocked</AlertTitle>
+                  <AlertDescription>Fix the missing fields to continue.</AlertDescription>
+                </Alert>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Inline message</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center gap-2">
+                <InlineMessage>Draft saved</InlineMessage>
+                <InlineMessage variant="success">All checks passing</InlineMessage>
+                <InlineMessage variant="warning">Missing optional fields</InlineMessage>
+                <InlineMessage variant="destructive">Sync failed</InlineMessage>
               </CardContent>
             </Card>
 

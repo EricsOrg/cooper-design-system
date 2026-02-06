@@ -217,6 +217,9 @@ export default function ComponentChecklistPage() {
                   <ChecklistItem>
                     Demo is resilient (no console errors, no layout shift loops).
                   </ChecklistItem>
+                  <ChecklistItem>
+                    Updated the /docs inventory (atoms/molecules/organisms) with usage notes.
+                  </ChecklistItem>
                 </ul>
               </CardContent>
             </Card>

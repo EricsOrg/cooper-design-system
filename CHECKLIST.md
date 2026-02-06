@@ -6,24 +6,24 @@
 - [ ] Spacing + radii + shadows + motion tokens
 - [ ] Button (variants, sizes, states)
 - [ ] Input (text, number, password, search)
-- [ ] Icon system + sizing
-- [ ] Link styles
+- [x] Icon system + sizing
+- [x] Link styles
 - [ ] Badge/Tag
-- [ ] Divider
+- [x] Divider
 - [ ] Loader/Spinner
 
 ## Molecules (must be perfect)
-- [ ] Form field (label/help/error)
-- [ ] Select/Combobox
-- [ ] Checkbox/Radio/Toggle
-- [ ] Input group (prefix/suffix)
-- [ ] Alerts/Inline messages
-- [ ] Toasts
-- [ ] Breadcrumbs
-- [ ] Pagination
-- [ ] Tabs
-- [ ] Tooltip/Popover
-- [ ] Dropdown menu
+- [x] Form field (label/help/error)
+- [x] Select/Combobox
+- [x] Checkbox/Radio/Toggle
+- [x] Input group (prefix/suffix)
+- [x] Alerts/Inline messages
+- [x] Toasts
+- [x] Breadcrumbs
+- [x] Pagination
+- [x] Tabs
+- [x] Tooltip/Popover
+- [x] Dropdown menu
 
 ## Organisms/Templates
 - [ ] Data table (sorting/selection/row actions)

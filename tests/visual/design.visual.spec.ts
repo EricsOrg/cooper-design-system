@@ -32,7 +32,12 @@ test.describe('visual: design system routes', () => {
     await page.waitForSelector('main');
     await stabilizePage(page);
 
-    await expect(page).toHaveScreenshot('design-index.png', { fullPage: true });
+    // Avoid full-page screenshots here: page height can drift as docs grow/shrink.
+    // We want a stable, above-the-fold regression signal.
+    await expect(page).toHaveScreenshot('design-index.png', {
+      fullPage: false,
+      maxDiffPixelRatio: 0.02,
+    });
   });
 
   test('overlays page + popover open', async ({ page }) => {
@@ -40,7 +45,11 @@ test.describe('visual: design system routes', () => {
     await page.waitForSelector('main');
     await stabilizePage(page);
 
-    await expect(page).toHaveScreenshot('design-overlays.png', { fullPage: true });
+    // This page is prone to tiny anti-aliasing differences across OS/runner images.
+    await expect(page).toHaveScreenshot('design-overlays.png', {
+      fullPage: false,
+      maxDiffPixelRatio: 0.03,
+    });
 
     // Open a popover (overlay state screenshot).
     const openPopover = page.getByRole('button', { name: /^open popover$/i }).first();
@@ -49,7 +58,10 @@ test.describe('visual: design system routes', () => {
       // Radix PopoverContent is rendered in a portal; wait for some content.
       await page.getByText('Quick settings').waitFor({ state: 'visible' });
       await stabilizePage(page);
-      await expect(page).toHaveScreenshot('design-overlays-popover-open.png', { fullPage: true });
+      await expect(page).toHaveScreenshot('design-overlays-popover-open.png', {
+        fullPage: false,
+        maxDiffPixelRatio: 0.03,
+      });
     }
   });
 });

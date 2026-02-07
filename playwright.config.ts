@@ -9,6 +9,10 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   timeout: 60_000,
+
+  // Keep snapshot filenames consistent across OSes (CI uses linux; dev often runs darwin).
+  // This avoids needing per-platform baselines.
+  snapshotPathTemplate: '{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}-{projectName}{ext}',
   expect: {
     // Make screenshots as deterministic as possible across CI runs.
     // Keep a small tolerance for rare subpixel/font rasterization differences.

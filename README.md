@@ -35,7 +35,10 @@ This repo includes lightweight Playwright screenshot tests for key `/design` rou
 ### One-time setup
 
 ```bash
-npx playwright install
+npm ci
+
+# installs browsers (and Linux deps in CI)
+npx playwright install --with-deps
 ```
 
 ### Run visual tests

@@ -32,7 +32,7 @@ npm run dev
 
 ## Development workflow
 
-1. Create a branch from `main`
+1. Create a branch from the default branch (`master`)
 2. Keep changes focused and small when possible
 3. Add/update docs pages when behavior or API changes
 4. Run the checks below before opening a PR

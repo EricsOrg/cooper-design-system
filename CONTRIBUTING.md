@@ -95,6 +95,7 @@ npm run test:visual:update
 ## Commit / PR guidance
 
 - Write PR titles that explain the user-visible intent (e.g. `Button: add loading state`)
+- Use the PR template (auto-populated on GitHub)
 - Include screenshots for visual changes (before/after)
 - If you updated snapshots, mention it explicitly
 

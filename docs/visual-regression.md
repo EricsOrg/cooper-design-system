@@ -6,6 +6,10 @@ This repo uses Playwright's built-in screenshot assertions (`toHaveScreenshot`) 
 
 ```bash
 npm ci
+
+# first time only (installs browsers)
+npx playwright install --with-deps
+
 npm run test:visual
 ```
 

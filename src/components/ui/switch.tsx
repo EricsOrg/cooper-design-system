@@ -26,7 +26,6 @@ const Switch = React.forwardRef<
   <input
     ref={ref}
     type={type}
-    role="switch"
     data-slot="switch"
     className={cn(switchVariants({ size, className }))}
     {...props}

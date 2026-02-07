@@ -40,7 +40,12 @@ test.describe('visual: design system routes', () => {
     await page.waitForSelector('main');
     await stabilizePage(page);
 
-    await expect(page).toHaveScreenshot('design-overlays.png', { fullPage: true });
+    // This page is prone to tiny anti-aliasing differences across OS/runner images.
+    // Keep the assertion strict-ish, but allow a small amount of pixel drift.
+    await expect(page).toHaveScreenshot('design-overlays.png', {
+      fullPage: true,
+      maxDiffPixelRatio: 0.03,
+    });
 
     // Open a popover (overlay state screenshot).
     const openPopover = page.getByRole('button', { name: /^open popover$/i }).first();

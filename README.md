@@ -10,16 +10,11 @@ For contribution guidelines (dev workflow, checks, snapshots), see [`CONTRIBUTIN
 - [Design Taxonomy](./docs/DESIGN_TAXONOMY.md)
 - [Implementation Plan](./docs/IMPLEMENTATION_PLAN.md)
 
-First, run the development server:
+First, install deps and run the development server:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

@@ -37,6 +37,26 @@ npm run dev
 3. Add/update docs pages when behavior or API changes
 4. Run the checks below before opening a PR
 
+### Troubleshooting: `git pull` fails with missing upstream ref
+
+If you see something like:
+
+> Your configuration specifies to merge with the ref ... but no such ref was fetched.
+
+…it usually means your local branch is tracking a remote branch that was deleted.
+
+Fix (safe defaults):
+
+```bash
+git fetch --prune
+# either switch back to the default branch
+git checkout master
+# or, on your current branch, detach the missing upstream
+git branch --unset-upstream
+```
+
+Then re-run `git pull`.
+
 ### Local checks
 
 Lint:

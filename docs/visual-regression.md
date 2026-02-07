@@ -30,6 +30,25 @@ git diff
 
 Commit the updated `*-snapshots/*.png` files along with the code change.
 
+## Snapshot file naming (cross‑OS)
+
+Snapshots are intentionally **OS-agnostic** so the same baseline files are used on macOS (local dev) and Linux (CI).
+
+- Expected snapshot filenames look like: `design-index-chromium.png` (no `-darwin` / `-linux` / `-win32` suffix).
+- If you accidentally generate OS-specific baselines, it usually means your Playwright snapshot path config diverged from `master`.
+
+Quick fix:
+
+```bash
+# make sure you’re on a clean branch and up to date
+git pull --ff-only
+
+# regenerate baselines using the repo scripts
+npm run test:visual:update
+```
+
+Then commit only the updated files under `tests/visual/**/*-snapshots/*.png`.
+
 ## Determinism / reducing flake
 
 The Playwright config is tuned for repeatable screenshots:

@@ -1,29 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cooper Design System
 
-## Getting Started
+This repo is a **Next.js** app that hosts Cooper Design System docs and UI component examples.
 
-For contribution guidelines (dev workflow, checks, snapshots), see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+## Getting started
 
-## Design System Docs
-- [PRD](./PRD.md)
-- [Completion Checklist](./CHECKLIST.md)
-- [Design Taxonomy](./docs/DESIGN_TAXONOMY.md)
-- [Implementation Plan](./docs/IMPLEMENTATION_PLAN.md)
-
-First, install deps and run the development server:
+Install deps and start the dev server:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start editing pages under `src/app/` (e.g. `src/app/page.tsx`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Visual regression (v0)
+For contribution guidelines (workflow, checks, snapshots), see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+
+## Docs
+
+- [PRD](./PRD.md)
+- [Completion Checklist](./CHECKLIST.md)
+- [Design Taxonomy](./docs/DESIGN_TAXONOMY.md)
+- [Implementation Plan](./docs/IMPLEMENTATION_PLAN.md)
+
+## Visual regression tests (Playwright)
 
 This repo includes lightweight Playwright screenshot tests for key `/design` routes.
 
@@ -74,18 +77,3 @@ Notes:
 - Only fails on **serious/critical** axe violations (smoke-level).
 - `color-contrast` is intentionally excluded from this smoke suite (too noisy for docs pages); track it separately.
 - If you need a different port, set `PW_PORT`.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

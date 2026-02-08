@@ -9,11 +9,16 @@ remote="${1:-origin}"
 # Ensure we have the latest remote refs (and prune deleted branches)
 git fetch --prune "$remote"
 
-# Determine default branch from origin/HEAD (falls back to master for this repo)
+# Determine default branch from origin/HEAD.
+# If origin/HEAD is missing (rare), fall back to main if it exists, else master.
 default_branch_ref="$(git symbolic-ref --quiet --short "refs/remotes/${remote}/HEAD" 2>/dev/null || true)"
 default_branch="${default_branch_ref#${remote}/}"
 if [[ -z "$default_branch" || "$default_branch" == "$default_branch_ref" ]]; then
-  default_branch="master"
+  if git show-ref --verify --quiet "refs/remotes/${remote}/main"; then
+    default_branch="main"
+  else
+    default_branch="master"
+  fi
 fi
 
 # Refuse to switch branches if there are local changes.

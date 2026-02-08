@@ -37,6 +37,22 @@ npm run dev
 3. Add/update docs pages when behavior or API changes
 4. Run the checks below before opening a PR
 
+### Troubleshooting: Playwright browsers missing
+
+If Playwright complains about missing browsers (e.g. on a fresh checkout), install them once:
+
+```bash
+npm run playwright:install
+# (equivalent) npx playwright install
+```
+
+On Linux, you may also need system deps:
+
+```bash
+# may require sudo
+npx playwright install --with-deps
+```
+
 ### Troubleshooting: `git pull` fails with missing upstream ref
 
 If you see something like:

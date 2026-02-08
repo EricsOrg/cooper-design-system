@@ -25,6 +25,7 @@ Start editing pages under `src/app/` (e.g. `src/app/page.tsx`).
 - `npm test` → runs the full CI suite (lint + typecheck + Playwright a11y + visual)
 - `npm run test:quick` → fast local check (lint + typecheck)
 - `npm run check` → alias for the fast local check (matches other repos)
+- `npm run clean` → removes local build/test artifacts (safe; does not delete `node_modules`)
 
 ## Contributing
 

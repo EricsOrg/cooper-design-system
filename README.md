@@ -2,6 +2,11 @@
 
 This repo is a **Next.js** app that hosts Cooper Design System docs and UI component examples.
 
+## Prerequisites
+
+- Node.js 20+ (see `.nvmrc`/`.node-version`)
+- npm (locked via `package-lock.json`)
+
 ## Getting started
 
 Install deps and start the dev server:

@@ -6,7 +6,7 @@ This repo is a **Next.js** app that hosts the design-system docs and UI componen
 
 ## Prerequisites
 
-- Node.js 20+ (CI uses Node 20)
+- Node.js 20+ (CI uses Node 20; see `.nvmrc`/`.node-version`)
 - npm (this repo is currently locked via `package-lock.json`)
 
 ## Setup

@@ -65,6 +65,22 @@ Then re-run `git pull` (or `git pull --rebase`).
 
 ### Local checks
 
+Fast checks (lint + typecheck):
+
+```bash
+npm run check
+# (alias) npm run test:quick
+```
+
+Full CI checks (lint + typecheck + a11y + visual):
+
+```bash
+npm test
+# (alias) npm run ci
+```
+
+Individual commands (when you want to focus):
+
 Lint:
 
 ```bash

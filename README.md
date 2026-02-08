@@ -15,6 +15,11 @@ Open http://localhost:3000
 
 Start editing pages under `src/app/` (e.g. `src/app/page.tsx`).
 
+## Common commands
+
+- `npm test` → runs the full CI suite (lint + typecheck + Playwright a11y + visual)
+- `npm run test:quick` → fast local check (lint + typecheck)
+
 ## Contributing
 
 For contribution guidelines (workflow, checks, snapshots), see [`CONTRIBUTING.md`](./CONTRIBUTING.md).

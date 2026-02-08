@@ -13,7 +13,9 @@
     "test:visual": "playwright test --config=playwright.config.ts",
     "test:visual:update": "playwright test --config=playwright.config.ts --update-snapshots",
     "update:visual-baselines": "node scripts/update-visual-baselines.mjs",
-    "test:a11y": "playwright test --config=playwright.a11y.config.ts"
+    "test:a11y": "playwright test --config=playwright.a11y.config.ts",
+    "test": "npm run ci",
+    "test:quick": "npm run lint && npm run typecheck"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

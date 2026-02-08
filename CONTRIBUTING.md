@@ -48,7 +48,7 @@ If you see something like:
 Fix (safe defaults):
 
 ```bash
-# easiest: use the helper (fetch --prune + switch to default branch + ff-only pull)
+# easiest: use the helper (fetch --prune + require clean working tree + switch to default branch + ff-only pull)
 npm run git:sync
 
 # or manually:

@@ -16,6 +16,15 @@ if [[ -z "$default_branch" || "$default_branch" == "$default_branch_ref" ]]; the
   default_branch="master"
 fi
 
+# Refuse to switch branches if there are local changes.
+# This script's job is to be safe and deterministic (no implicit stash/pop).
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "✋ Working tree is not clean. Commit/stash your changes first, then re-run:" >&2
+  echo "  git status" >&2
+  echo "  git stash -u   # or commit" >&2
+  exit 2
+fi
+
 # Always switch back to default branch before pulling.
 # This avoids: "Your configuration specifies to merge with the ref ... but no such ref was fetched."
 git switch "$default_branch" >/dev/null

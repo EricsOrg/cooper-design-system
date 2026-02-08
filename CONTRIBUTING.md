@@ -48,14 +48,20 @@ If you see something like:
 Fix (safe defaults):
 
 ```bash
+# update your local view of remote branches, including deletions
 git fetch --prune
+
+# (optional) see which local branches have a deleted upstream
+# git branch -vv | rg ': gone]'
+
 # either switch back to the default branch
 git checkout master
+
 # or, on your current branch, detach the missing upstream
 git branch --unset-upstream
 ```
 
-Then re-run `git pull`.
+Then re-run `git pull` (or `git pull --rebase`).
 
 ### Local checks
 

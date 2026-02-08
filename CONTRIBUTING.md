@@ -48,11 +48,15 @@ If you see something like:
 Fix (safe defaults):
 
 ```bash
+# easiest: use the helper (fetch --prune + switch to default branch + ff-only pull)
+npm run git:sync
+
+# or manually:
 # update your local view of remote branches, including deletions
 git fetch --prune
 
-# (optional) see which local branches have a deleted upstream
-# git branch -vv | rg ': gone]'
+# (optional) see which local branches have a deleted upstream (no ripgrep required)
+git branch -vv | grep -n "\[gone\]" || true
 
 # either switch back to the default branch
 git checkout master

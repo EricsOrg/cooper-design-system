@@ -16,7 +16,8 @@
     "test:a11y": "playwright test --config=playwright.a11y.config.ts",
     "test": "npm run ci",
     "test:quick": "npm run lint && npm run typecheck",
-    "check": "npm run test:quick"
+    "check": "npm run test:quick",
+    "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

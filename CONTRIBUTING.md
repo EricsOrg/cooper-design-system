@@ -52,7 +52,7 @@ Fix (safe defaults):
 git fetch --prune
 
 # (optional) see which local branches have a deleted upstream
-# git branch -vv | rg ': gone]'
+# git branch -vv | grep ': gone]'
 
 # either switch back to the default branch
 git checkout master

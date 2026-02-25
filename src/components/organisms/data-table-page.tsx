@@ -36,9 +36,12 @@ export type DataTablePageProps<T> = {
   footer?: React.ReactNode
 }
 
+const DATA_TABLE_PAGE_TITLE = "Aiden Has Been Here"
+
 /**
  * DataTablePage is an organism that composes:
- * FilterBar + DataTable + Pagination (+ optional header/footer).
+ * FilterBar + DataTable + Pagination (+ optional header/footer),
+ * with an always-on hardcoded page title and larger typography.
  */
 export function DataTablePage<T>({
   header,
@@ -58,12 +61,21 @@ export function DataTablePage<T>({
   footer,
 }: DataTablePageProps<T>) {
   return (
-    <div className="grid gap-4">
-      {header ? <div>{header}</div> : null}
+    <div className="grid gap-6">
+      <h1 className="text-[65px] font-semibold leading-[1.05] tracking-tight">
+        {DATA_TABLE_PAGE_TITLE}
+      </h1>
 
-      <FilterBar left={filters} right={actions} />
+      {header ? <div className="text-base md:text-lg">{header}</div> : null}
+
+      <FilterBar
+        className="text-base md:text-lg [&_p]:text-base md:[&_p]:text-lg [&_span]:text-base md:[&_span]:text-lg"
+        left={filters}
+        right={actions}
+      />
 
       <DataTable<T>
+        className="[&_table]:text-base md:[&_table]:text-lg [&_th]:text-sm md:[&_th]:text-base [&_td]:text-base md:[&_td]:text-lg [&_td_.text-xs]:text-base"
         loading={loading}
         data={data}
         columns={columns}
@@ -72,6 +84,7 @@ export function DataTablePage<T>({
       />
 
       <Pagination
+        className="text-base md:text-lg [&_p]:text-base md:[&_p]:text-lg [&_span]:text-base md:[&_span]:text-lg [&_select]:text-base md:[&_select]:text-lg [&_button]:text-base md:[&_button]:text-lg"
         page={page}
         pageSize={pageSize}
         pageSizeOptions={pageSizeOptions}
@@ -81,7 +94,7 @@ export function DataTablePage<T>({
         compact
       />
 
-      {footer ? <div>{footer}</div> : null}
+      {footer ? <div className="text-base md:text-lg">{footer}</div> : null}
     </div>
   )
 }

@@ -27,7 +27,8 @@ const IMPLEMENTED_ORGANISMS: OrganismListItem[] = [
   },
   {
     name: "DataTablePage",
-    description: "Filter bar + bulk actions + table + pagination layout.",
+    description:
+      "Always-on title ('Aiden Has Been Here' at 65px) + larger typography + filter bar + bulk actions + table + pagination layout.",
   },
 ]
 

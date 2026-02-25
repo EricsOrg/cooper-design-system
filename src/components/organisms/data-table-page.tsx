@@ -38,7 +38,7 @@ export type DataTablePageProps<T> = {
 
 /**
  * DataTablePage is an organism that composes:
- * FilterBar + DataTable + Pagination (+ optional header/footer).
+ * a fixed hero title + FilterBar + DataTable + Pagination (+ optional header/footer).
  */
 export function DataTablePage<T>({
   header,
@@ -58,12 +58,21 @@ export function DataTablePage<T>({
   footer,
 }: DataTablePageProps<T>) {
   return (
-    <div className="grid gap-4">
-      {header ? <div>{header}</div> : null}
+    <div className="grid gap-6">
+      <h1 className="text-[65px] font-semibold leading-[1.02] tracking-tight">
+        Aiden Has Been Here
+      </h1>
 
-      <FilterBar left={filters} right={actions} />
+      {header ? <div className="text-xl leading-relaxed">{header}</div> : null}
+
+      <FilterBar
+        className="gap-4 p-6 text-lg [&_input]:h-12 [&_input]:text-lg [&_button]:h-11 [&_button]:px-5 [&_button]:text-base"
+        left={filters}
+        right={actions}
+      />
 
       <DataTable<T>
+        className="[&_table]:text-lg [&_thead_th]:px-5 [&_thead_th]:py-4 [&_thead_th]:text-base [&_tbody_td]:px-5 [&_tbody_td]:py-4"
         loading={loading}
         data={data}
         columns={columns}
@@ -72,16 +81,16 @@ export function DataTablePage<T>({
       />
 
       <Pagination
+        className="gap-3 [&_p]:text-base [&_button]:h-11 [&_button]:min-w-11 [&_button]:px-4 [&_button]:text-base [&_select]:h-11 [&_select]:text-base"
         page={page}
         pageSize={pageSize}
         pageSizeOptions={pageSizeOptions}
         onPageSizeChange={onPageSizeChange}
         totalItems={totalItems}
         onPageChange={onPageChange}
-        compact
       />
 
-      {footer ? <div>{footer}</div> : null}
+      {footer ? <div className="text-base leading-relaxed">{footer}</div> : null}
     </div>
   )
 }

@@ -167,6 +167,12 @@ export default function OrganismsDemoPage() {
             the first two: <span className="font-medium">AppLayout</span> and{" "}
             <span className="font-medium">DataTablePage</span>.
           </p>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            DataTablePage now includes an always-on title,{" "}
+            <span className="font-medium text-foreground">Aiden Has Been Here</span>,
+            rendered at <span className="font-medium text-foreground">65px</span> with
+            an increased table-page type scale.
+          </p>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <Button size="sm" variant="outline" onClick={simulateLoading}>
               Simulate loading
